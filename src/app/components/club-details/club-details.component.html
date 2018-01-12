@@ -1,11 +1,30 @@
 <div  class="details-container">
   <div class="details-data" *ngIf="club">
     <h2>{{ club.name | uppercase }}</h2>
-    <div><span>id: </span>{{club.id}}</div>
-    <div>
-      <label>name:
-      </label>
-    </div>  
+    <img [src]="club.iconPath">
+      <div>
+        Club name: <span>{{ club.name }}</span>
+      </div>
+
+      <div>
+        Points: <span>{{ club.points }}</span>
+      </div>
+
+      <div>
+        Matches: <span>{{ club.matchesPlayed }}</span>
+      </div>
+
+      <div>
+        Wins/Draws/Losses: <span>{{ club.wins }} / {{ club.draws }} / {{ club.losses }}</span>
+      </div>
+
+      <div>
+        Goalscore: <span>{{ club.goalsFor }} - {{ club.goalsAgainst }}</span>
+      </div>
+       
   </div>    
-  <button mat-raised-button routerLink="/superligaen">Back</button>  
+  <div class="button-panel">
+    <button mat-raised-button color="primary" routerLink="/details/edit/{{club.id}}" class="btn btn-edit" *ngIf="AuthService.isLoggedIn">Edit</button>  
+    <button mat-raised-button color="primary" color="warn" routerLink="/superligaen" class="btn btn-back">Back</button>  
+</div>
 </div>

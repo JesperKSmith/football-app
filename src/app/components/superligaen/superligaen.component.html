@@ -1,29 +1,34 @@
 
 <div class="container superligatable">
-  <table class="altrowstable"  id="alternatecolor">
-  <thead>
-    <tr>
-      <th>Position</th>
-      <th>Team</th>
-      <th>Matches</th>
-      <th>Wins</th>
-      <th>Draws</th>
-      <th>Losses</th>
-      <th>Goals</th>
-      <th>Points</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let club of clubs, let i = index" routerLink="/details/{{club.id}}" >        
-      <td>{{ i + 1 }}</td>
-      <td id="table-clubname"><span id="club-icon"><img [src]="club.iconPath" class="club-icon"></span>{{ club.name }}</td>
-      <td>{{ club.matchesPlayed }}</td>
-      <td>{{ club.wins }}</td>
-      <td>{{ club.draws }}</td>
-      <td>{{ club.losses }}</td>
-      <td>{{ club.goalsFor }} - {{ club.goalsAgainst }}</td>
-      <td>{{ club.points }}</td>
-    </tr>
-  </tbody>
+  <h3>The Danish Superliga</h3>
+  <table class="altrowstable">
+    <thead>
+      <tr>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Matches</th>
+        <th>Wins</th>
+        <th>Draws</th>
+        <th>Losses</th>
+        <th>Goals</th>
+        <th>Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let club of clubs; let i = index" 
+          routerLink="/details/{{club.id}}" 
+          [ngClass]="i % 2 == 0 ? 'oddrowcolor' : 'evenrowcolor'" class="club-e2e">        
+        <td>{{ i + 1 }}</td>
+        <td id="table-clubname">
+          <span id="club-icon"><img [src]="club.iconPath" class="club-icon"></span>{{ club.name }}
+        </td>
+        <td>{{ club.matchesPlayed }}</td>
+        <td>{{ club.wins }}</td>
+        <td>{{ club.draws }}</td>
+        <td>{{ club.losses }}</td>
+        <td>{{ club.goalsFor }} - {{ club.goalsAgainst }}</td>
+        <td>{{ club.points }}</td>
+      </tr>
+    </tbody>
   </table>  
 </div>

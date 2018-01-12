@@ -1,15 +1,30 @@
 .details-container {
     display: flex;    
-    width: 30vw;
-    height: 50vh;
-    background-color: #102e80;
-    margin-bottom: 10vh;
+    flex-direction: column;
+    width: 32vw;
+    height: 60vh;
+    background-color: #1b50d6;
+    margin-bottom: 4vh;
     opacity: 0.8;
-    border-radius: 15px;
-    padding: 1em;    
+    padding: 1em;
+    border-radius: 15px;    
+    border: 10px solid #102e80;
 }
 
-.details-container button {
-    align-self: flex-end;
+.details-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.details-data img {
+    height: auto;
+    width: 50%;
+    margin: 20px;
+    
+}
+
+.details-data div {
+    display: flex;
+    flex-direction: column;    
+}

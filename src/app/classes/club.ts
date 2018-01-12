@@ -10,3 +10,4 @@ export class Club {
     points: number;
     iconPath: string;
 }
+

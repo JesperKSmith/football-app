@@ -1,0 +1,77 @@
+.admin-container {
+    display: flex;        
+    width: 50vw;
+    border: 15px solid #102e80;
+    background-color: #1b50d6;
+    margin-bottom: 10vh;
+    opacity: 0.8;
+    border-radius: 15px;
+    padding: 1em;    
+}
+
+.admin-container button {
+    align-self: flex-end;
+}
+
+.admin-data {    
+    display: flex;
+    align-items:center;
+    border-radius: 15px;
+}
+.admin-data form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.admin-data label {
+    width: 100%;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+
+
+:host /deep/ .mat-input-underline {
+    background-color: #102e80;    /* replace this color with your accent color hex code */    
+}
+:host /deep/ .mat-input-placeholder {
+    color: white;    
+ }
+
+ :host /deep/ .mat-form-field {
+    margin: 0px 0px 5px 5px;    
+ }
+
+ :host /deep/ .mat-raised-button {
+    margin: 5px;    
+ }
+
+.button-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 100%;
+    width: 100%;
+}
+
+
+ @media screen and (max-width: 600px) {
+    .admin-container {
+        width: 80vw;
+    }
+    .admin-data {
+        flex-direction: column;
+    }
+    .button-panel {
+        height: auto;
+    }
+}

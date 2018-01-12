@@ -1,0 +1,12 @@
+[0112/002451.428:ERROR:process_reader_win.cc(123)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder.  (0xc0000022)
+[0112/002451.429:ERROR:exception_snapshot_win.cc(87)] thread ID 15464 not found in process
+[0112/002451.429:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0112/013047.688:ERROR:process_reader_win.cc(123)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder.  (0xc0000022)
+[0112/013047.689:ERROR:exception_snapshot_win.cc(87)] thread ID 17236 not found in process
+[0112/013047.689:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0112/013419.649:ERROR:process_reader_win.cc(123)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder.  (0xc0000022)
+[0112/013419.650:ERROR:exception_snapshot_win.cc(87)] thread ID 10644 not found in process
+[0112/013419.650:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
+[0112/013602.065:ERROR:process_reader_win.cc(123)] NtOpenThread: {Adgang nægtet} En proces har anmodet om adgang til et objekt, men har ikke fået disse rettigheder.  (0xc0000022)
+[0112/013602.066:ERROR:exception_snapshot_win.cc(87)] thread ID 13232 not found in process
+[0112/013602.066:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed

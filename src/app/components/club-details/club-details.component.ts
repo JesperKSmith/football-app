@@ -3,6 +3,7 @@ import { Club } from '../../classes/club';
 import { DataService } from '../../services/database/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
+import { AuthService } from '../../services/guard/auth.service';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class ClubDetailsComponent implements OnInit {
   constructor(
     private data: DataService, 
     private route: ActivatedRoute, 
-    private router: Router
+    private router: Router,
+    private AuthService: AuthService
   ){
     route.params.subscribe( params => {
       let id: number = +params['id'];

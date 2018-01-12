@@ -6,33 +6,37 @@ import { Club } from "../../classes/club";
 import { Observable } from "rxjs";
 import { map, tap, catchError } from "rxjs/operators";
 import { of } from 'rxjs/observable/of';
+import { User } from '../../classes/user';
 
-
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type' : 'application/json'})
+};
 
 
 @Injectable()
 export class DataService {
 
   localData: Club[] = [];
-  urlPrecursor: string = "http://localhost:8000/";
+  urlPrecursor: string = "http://localhost:8000/api/clubs";
+  adminUrl: string = "http://localhost:8000/api/admin";
+ 
+  
 
   constructor(private http: HttpClient) {
 
   }
 
   public getAll(): Observable<Club[]> {
-    return this.http.get(this.urlPrecursor + '/api/clubs').pipe(
-      map((response: any[]) => {
-        this.localData = response;
+    return this.http.get(this.urlPrecursor).pipe(
+        map((response: any[]) => {
+        this.localData = response;        
         return this.localData;
       })
-    );   
+    ); 
   }
 
+
   public getClub(id: number): Club { 
-    console.log(this.localData);        
-    let nId = id;
-    console.log(this.localData.find(x => x.id === id));
     return this.localData.find(x => x.id === id);        
   }
 
@@ -46,22 +50,53 @@ export class DataService {
   //   );
   // } 
 
-  public createClub(club: Club) {
-    this.http.post(this.urlPrecursor + 'api/clubs', club)
+  public createClub(club: Club) : Observable<any>  {
+    club.iconPath = "assets/fc-helsingoer-icon.png";
+    try {
+      this.http.post(this.urlPrecursor, club)
       .subscribe( data => {
-        console.log(data);
-      });
+        return data;
+      })      
+    }
+    catch(e) {
+      return e;
+    }
   }
 
-  public deleteClub(club: Club) {
-
+  public deleteClub(club: Club) : Observable<any> {
+    try {
+      this.http.delete(this.urlPrecursor + `/${club.id}`)
+      .subscribe( data => {
+        return data;
+      })
+    }
+    catch(e) {
+      return e;
+    }
+    
   }
 
-  public updateClub(club: Club) {
-    this.http.put(this.urlPrecursor + 'api/clubs', club)
-    .subscribe( data => {
-      console.log(data);
-    });
+  public updateClub(club: Club) : Observable<any> {
+    try {
+      this.http.put(this.urlPrecursor + `/${club.id}`, club)
+      .subscribe( data => {
+
+        return this.localData.find(x => x.id === club.id) === data;
+        // console.log("data returned:", data);
+        
+        // let index = this.localData.findIndex(x => x.id == club.id);
+        // console.log("index is: ", index);
+
+        // this.localData[index] === data;
+
+        // console.log("localData is now:", this.localData);        
+        
+      })
+    }
+    catch(e) {
+      return e;
+    }    
   }
 
+  
 }

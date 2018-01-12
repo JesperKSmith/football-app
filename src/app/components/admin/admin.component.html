@@ -1,0 +1,78 @@
+<!-- <div  class="admin-container"> -->
+<div  class="admin-container">
+  <div class="admin-data" *ngIf="club">
+   <form #adminForm="ngForm" (ngSubmit)="submitChanges(adminForm)">
+
+    <mat-form-field color="warn">
+        <input 
+            matInput 
+            placeholder="Club Name"
+            [(ngModel)]="club.name" 
+            name="name"
+            #clubName="ngModel"           
+            required
+            class="club-e2e"
+        >
+        <mat-error *ngIf="!adminForm.value.name">'Club name' is <strong>required</strong></mat-error>
+        
+    </mat-form-field>
+
+    <mat-form-field color="warn">
+        <input matInput placeholder="Matches played" [(ngModel)]="club.matchesPlayed" name="matchesPlayed" #matchesPlayed="ngModel"  required class="club-e2e" pattern="^(0|[1-9][0-9]*)$">        
+        <mat-error *ngIf="!adminForm.value.wins">'Wins' is <strong>required</strong></mat-error> 
+        <mat-error *ngIf="matchesPlayed.hasError('pattern')">Must be a number</mat-error>       
+    </mat-form-field>
+
+    <mat-form-field color="warn">
+        <input matInput placeholder="Wins" [(ngModel)]="club.wins" name="wins" #wins="ngModel"  required class="club-e2e" pattern="^(0|[1-9][0-9]*)$">
+        <mat-error *ngIf="!adminForm.value.wins">'Wins' is <strong>required</strong></mat-error>
+        <mat-error *ngIf="wins.hasError('pattern')">Must be a number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="warn">
+        <input matInput placeholder="Draws" [(ngModel)]="club.draws" name="draws" #draws="ngModel"  required class="club-e2e" pattern="^(0|[1-9][0-9]*)$">
+        <mat-error *ngIf="!adminForm.value.draws">'Draws' is <strong>required</strong></mat-error>
+        <mat-error *ngIf="draws.hasError('pattern')">Must be a number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="warn">
+        <input matInput placeholder="Losses" [(ngModel)]="club.losses" name="losses" #losses="ngModel"  required class="club-e2e" pattern="^(0|[1-9][0-9]*)$">
+        <mat-error *ngIf="!adminForm.value.losses">'Losses' is <strong>required</strong></mat-error>
+        <mat-error *ngIf="losses.hasError('pattern')">Must be a number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="warn">
+        <input matInput placeholder="Goals for" [(ngModel)]="club.goalsFor" name="goalsFor" #goalsFor="ngModel"  required class="club-e2e" pattern="^(0|[1-9][0-9]*)$">
+        <mat-error *ngIf="!adminForm.value.goalsFor">'Goals for' is <strong>required</strong></mat-error>
+        <mat-error *ngIf="goalsFor.hasError('pattern')">Must be a number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="warn">
+        <input matInput placeholder="Goals Against" [(ngModel)]="club.goalsAgainst" name="goalsAgainst" #goalsAgainst="ngModel"  required class="club-e2e" pattern="^(0|[1-9][0-9]*)$">
+        <mat-error *ngIf="!adminForm.value.goalsAgainst">'Goals Against' is <strong>required</strong></mat-error>
+        <mat-error *ngIf="goalsAgainst.hasError('pattern')">Must be a number</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="warn">
+        <input matInput placeholder="Points" [(ngModel)]="club.points" name="points" #points="ngModel"  required class="club-e2e" pattern="^(0|[1-9][0-9]*)$">
+        <mat-error *ngIf="!adminForm.value.points">'Points' is <strong>required</strong></mat-error>
+        <mat-error *ngIf="points.hasError('pattern')">Must be a number</mat-error>
+    </mat-form-field>
+
+    <br>
+    <button mat-raised-button type="submit" id="submit-e2e">Submit changes</button>
+   </form>
+    <div class="button-panel">
+        <div>            
+            <button mat-raised-button routerLink="/superligaen">Back</button> 
+            <button mat-raised-button color="warn" (click)="deleteClub(club)" type="button">Delete</button>
+        </div>    
+    </div>
+   </div>  
+</div>
+
+
+ <!-- <div *ngFor="let entry of labelTexts();">{{entry}}
+    <input *ngFor="let key of keys(); let in=index" [(ngModel)]="club.[key]" name ="{{key}}">
+    <input [(ngModel)]="toDos[index]" placeholder="item">
+ </div> -->

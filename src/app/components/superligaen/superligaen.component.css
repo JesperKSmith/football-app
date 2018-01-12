@@ -1,3 +1,13 @@
+.superligatable {
+  border-radius: 15px;    
+  border: 10px solid #102e80;
+  background-color: #102e80;  
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.8;
+}
 table.altrowstable {        
     font-family: verdana,arial,sans-serif;
     font-size:12px;
@@ -5,9 +15,8 @@ table.altrowstable {
     border-color: #a9c6c9;
     border-collapse: collapse;
     width: 100%;
-    margin-bottom: 6em;
     opacity: 0.9;
-    
+
     
   }
   table.altrowstable th {
@@ -15,6 +24,7 @@ table.altrowstable {
     padding: 2px;
     border-style: solid;
     border-color: #63bfc7;
+    background-color:#102e80;
   }
   table.altrowstable td {    
     border-width: 1px;
